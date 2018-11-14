@@ -111,7 +111,7 @@ UI_ModPanel = 0;		// [&] panel with messages and help for moderators
 UI_CustomCaptions = 0;		// [&] custom captions for add, refresh, voteskip buttons, and welcome text
 UI_PlayerOptions = 1;		// [&] additional player options
 UI_TransformationBtns = 1;	// player transformation buttons
-UI_ChannelDatabase = 0;		// [&] box with embed additional media database
+UI_ChannelDatabase = 1;		// [&] box with embed additional media database
 UI_ChannelGalleries = 0;	// [&] box with embed galleries
 UI_DisplayModeSel = 1;		// selector with player display modes
 UI_ChannelTheme = 0;		// [&] additional default channel theme
@@ -250,7 +250,7 @@ CustomCaptions_Array = {
 
 UnicodeChars_Array = [
 '?', '?', '?', '?', '?', '?', '?', '?', '?', '?', '?', '?', '?',
-'?', '?', '?', '?', '?', '?', '?', '?', '?', '?', '¥', '©', '8',
+'?', '?', '?', '?', '?', '?', '?', '?', '?', '?', 'Â¥', 'Â©', '8',
 ];
 
 ChannelGalleries_Array = [
@@ -375,40 +375,7 @@ after:'<a href="https://pl.vichan.net/$1/src/$2" target="_blank">'
 // WARNING! Use ChannelDatabase_URL only if you want to use external database file, it overwrites database below.
 // If so, copy and configure 'https://raw.github.com/zimny-lech/CyTube-Plus/master/external-db.js' file.
 
-ChannelDatabase=[
-['', 'Japanese'],
-['http://www.youtube.com/watch?v=Q3y-80HBM6Q', 'An Cafe - Smile Ichiban Ii Onna'],
-['http://www.youtube.com/watch?v=nDqaTXqCN-Q', 'Babymetal - Ijime, Dame, Zettai'],
-['http://www.youtube.com/watch?v=aNlkiymcT1Q', 'Hinoi Team - Ike Ike'],
-['http://www.youtube.com/watch?v=JbQYK0mwLss', 'Morning Musume - Onna Ni Sachi Are'],
-['http://www.youtube.com/watch?v=VZKMaFR2mtU', 'Perfume - Fake It'],
-['http://www.youtube.com/watch?v=OYEHfWb1b4M', 'Shoko Nakagawa - Yuzurenai Negai'],
-['http://www.youtube.com/watch?v=jvhI576M6so', 'Yuu Kikkawa - Bokarisuto?'],
-['', 'Korean'],
-['http://www.youtube.com/watch?v=M-XXJJFZcXg', '4Minute - Heart To Heart (jap.)'],
-['http://www.youtube.com/watch?v=HchHZkkBOoE', 'As One - Catch Me Up'],
-['http://www.youtube.com/watch?v=UVeTI4v24M0', 'C-REAL - No No No No No'],
-['http://www.youtube.com/watch?v=04FdisNU3vw', 'Girl\'s Day - Oh! My God'],
-['http://www.youtube.com/watch?v=ysnUHXksic8', 'NS Yoon-G - Reason To Become A Witch'],
-['http://www.youtube.com/watch?v=mZUZdGCyLmw', 'Orange Caramel - Bangkok City'],
-['http://www.youtube.com/watch?v=r-MXLmNnarQ', 'TINY-G - Minimanimo'],
-['', 'Chinese'],
-['http://www.youtube.com/watch?v=Bi0tjyVfHOg', 'Amber Ann - Lian Ai Yingyuan Tuan'],
-['http://www.youtube.com/watch?v=dsU0Vu6aJhw', 'By2 - Love You Love You'],
-['http://www.youtube.com/watch?v=ovPhJim1EUc', 'Momo - One Hundred Girlfriends '],
-['http://www.youtube.com/watch?v=lxa2KqERBZE', 'S.H.E. - Shero'],
-['http://www.youtube.com/watch?v=jd2-Nf86jvA', 'Weather Girls - Koi No Tenki Yohou'],
-['', 'Anime songs'],
-['http://www.youtube.com/watch?v=fJ_DH7jzoxQ', 'Ai No Tenshi (Perfect Blue)'],
-['http://www.youtube.com/watch?v=ZNu_NV5PEM8', 'Chu? - Miko Miko Naasu - Ai No Teema'],
-['http://www.youtube.com/watch?v=l65_QPNZ_k8', 'Hommarju feat. MAKI - Yamato Nadeshiko Education (Seitokai Yakuindomo OP)'],
-['http://www.youtube.com/watch?v=dQbaJquz_jo', 'Kayo Sakata - Shoujo Q (Pani Poni Dash! OP)'],
-['http://www.youtube.com/watch?v=nLSFxQijz6U', 'Kotoko - Princess Bride'],
-['http://www.youtube.com/watch?v=QK-37CnYTpg', 'Princess Party Camelia OP'],
-['http://www.youtube.com/watch?v=jehMXrY1q5I', 'Yui Makino - Yume No Tsubasa'],
-];
-
-ChannelDatabase_URL='';
+ChannelDatabase_URL='https://raw.githubusercontent.com/iamweirdie/Reheated-CyTube-Plus-/master/external-db.js';
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -1321,7 +1288,7 @@ function formatOrderedList() {
 	for (i=1; i<len; i++) {
 		item=$("#queue .queue_entry:nth-child("+i+")").data("media");
 		link=formatURL(item);
-		list.push(item.title+' ¦¦ '+link+' ¦¦ ['+item.duration+']');
+		list.push(item.title+' Â¦Â¦ '+link+' Â¦Â¦ ['+item.duration+']');
 		list.sort();
 	}
 	return list.join('\n');
@@ -2787,19 +2754,19 @@ if (UI_FontsBtn=="1") {
 	fontsbtnwrap = $('<div id="fontsbtnwrap" />').appendTo(fontspanel);
 
 	FontsArray = [
-		['background:white', 'white', '¦'],
-		['background:gold', 'yellow', '¦'],
-		['background:orange', 'orange', '¦'],
-		['background:#FFBBFF', 'pink', '¦'],
-		['background:red', 'red', '¦'],
-		['background:limegreen', 'lime', '¦'],
-		['background:green', 'green', '¦'],
-		['background:aqua', 'aqua', '¦'],
-		['background:blue', 'blue', '¦'],
-		['background:#660099', 'violet', '¦'],
-		['background:#660000', 'brown', '¦'],
-		['background:silver', 'silver', '¦'],
-		['background:black', 'black', '¦'],
+		['background:white', 'white', 'Â¦'],
+		['background:gold', 'yellow', 'Â¦'],
+		['background:orange', 'orange', 'Â¦'],
+		['background:#FFBBFF', 'pink', 'Â¦'],
+		['background:red', 'red', 'Â¦'],
+		['background:limegreen', 'lime', 'Â¦'],
+		['background:green', 'green', 'Â¦'],
+		['background:aqua', 'aqua', 'Â¦'],
+		['background:blue', 'blue', 'Â¦'],
+		['background:#660099', 'violet', 'Â¦'],
+		['background:#660000', 'brown', 'Â¦'],
+		['background:silver', 'silver', 'Â¦'],
+		['background:black', 'black', 'Â¦'],
 		['background:black; color:white', 'bw', 'a'],
 		['background:white; font-weight:bold; color:black', 'b', 'B'],
 		['background:white; font-style:italic; color:black', 'i', 'I'],
@@ -3061,9 +3028,9 @@ if (UI_EmbeddingMedia=="1" && (EmbeddingMedia_Images!="" || EmbeddingMedia_Video
 		  + 'Click on image or double click on video to open in the new tab.\n'
 		  + 'All videos are muted by default, if autoplay - click to unmute, else click to play.\n\n'
 		  + 'This channel supports following types of links (specified as CSS codes):\n'
-		  + '¦ Images - ';
+		  + 'Â¦ Images - ';
 		  (EmbeddingMedia_Images!="") ? txt+=EmbeddingMedia_Images : 'none';
-		txt += '\n¦ Videos - ';
+		txt += '\nÂ¦ Videos - ';
 		  (EmbeddingMedia_Videos!="") ? txt+=EmbeddingMedia_Videos : 'none';
 		alert(txt);
 	});
@@ -3297,8 +3264,8 @@ if ($("#plonotification").length>0) {
 
 // rearranging footer
 
-html='<br />CyTube Plus 4.5 · Copyright &copy; 2013-2014 Zimny Lech · '
-  + 'Free source on <a href="http://github.com/zimny-lech/CyTube-Plus" target="_blank">GitHub</a> · '
+html='<br />CyTube Plus 4.5 Â· Copyright &copy; 2013-2014 Zimny Lech Â· '
+  + 'Free source on <a href="http://github.com/zimny-lech/CyTube-Plus" target="_blank">GitHub</a> Â· '
   + '<a href="http://github.com/zimny-lech/CyTube-Plus/wiki" target="_blank">Wiki</a>';
 $(".credit").append(html);
 
